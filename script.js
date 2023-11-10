@@ -4,6 +4,56 @@ const notificationCount = document.querySelector('.notifications__count');
 const notificationBtn = document.querySelector('.notifications__btn');
 const notificationList = document.querySelector('.notifications__list');
 
+class Notification {
+  #element;
+  #status;
+  #text;
+  #markElement;
+
+  constructor(notification) {
+    this.#element = notification;
+    this.#text = this.#element.querySelector('.notification__text');
+    this.createMarkElement();
+    this.updateStatus();
+  }
+
+  set status(status) {
+    this.#status = status;
+    this.#element.setAttribute('data-status', status);
+  }
+
+  get status() {
+    return this.#status;
+  }
+
+  createMarkElement() {
+    this.#markElement = document.createElement('span');
+    this.#markElement.setAttribute('aria-hidden', true);
+    this.#markElement.classList.add('notification__mark');
+    this.#markElement.tabIndex = -1;
+  }
+
+  setStatusAttribute(status) {
+    this.#element.setAttribute('data-status', status);
+    this.updateStatus();
+  }
+
+  updateStatus() {
+    this.#status = this.#element.getAttribute('data-status');
+    if (this.#status === 'unread') this.addMark();
+    if (this.#status === 'read') this.removeMark();
+  }
+
+  addMark() {
+    if (this.#status === 'unread') {
+      this.#text.insertAdjacentElement('beforeend', this.#markElement);
+    }
+  }
+
+  removeMark() {
+    this.#markElement.remove();
+  }
+}
 class NotificationApp {
   #notifications = [];
   #unreadNotificationCount = 0;
@@ -25,9 +75,7 @@ class NotificationApp {
   setUnreadCount() {
     this.#unreadNotificationCount = 0;
     this.#notifications.forEach((notification) => {
-      if (notification.status === 'unread') {
-        this.#unreadNotificationCount++;
-      }
+      if (notification.status === 'unread') this.#unreadNotificationCount++;
     });
     this.updateNotificationCount();
   }
@@ -47,9 +95,8 @@ class NotificationApp {
   }
 
   setElementStatus(target) {
-    if (target.getAttribute('data-status') === 'unread') {
+    if (target.getAttribute('data-status') === 'unread')
       target.setAttribute('data-status', 'read');
-    }
   }
 
   updateStatusData() {
@@ -67,31 +114,8 @@ class NotificationApp {
 
   setAllRead() {
     this.#notifications.forEach((notification) => {
-      notification.status = 'read';
+      notification.setStatusAttribute('read');
     });
-  }
-}
-
-class Notification {
-  #element;
-  #status;
-
-  constructor(notification) {
-    this.#element = notification;
-    this.updateStatus();
-  }
-
-  set status(status) {
-    this.#status = status;
-    this.#element.setAttribute('data-status', status);
-  }
-
-  get status() {
-    return this.#status;
-  }
-
-  updateStatus() {
-    this.#status = this.#element.getAttribute('data-status');
   }
 }
 

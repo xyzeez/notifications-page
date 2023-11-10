@@ -214,33 +214,11 @@ main {
   background-color: var(--light-grayish-blue-2);
 }
 
-.notification[data-status='unread'] .notification__text::after {
-  position: absolute;
-  content: '';
-  top: calc(50% - 3px);
-  left: calc(100% + 5px);
+.notification__mark {
+  display: inline-block;
   width: 8px;
   height: 8px;
-  border-radius: 50%;
-  background-color: var(--red);
-}
-
-.notification[data-status='unread']
-  .notification__text:has(.notification__object)::after {
-  display: none;
-}
-
-.notification__object {
-  position: relative;
-}
-
-.notification[data-status='unread'] .notification__object::after {
-  position: absolute;
-  content: '';
-  top: calc(50% - 3px);
-  left: calc(100% + 5px);
-  width: 8px;
-  height: 8px;
+  margin-left: 2px;
   border-radius: 50%;
   background-color: var(--red);
 }
@@ -263,7 +241,6 @@ main {
 }
 
 .notification__text {
-  position: relative;
   width: fit-content;
 }
 
