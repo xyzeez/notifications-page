@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Notifications page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1 class="sr-only">Notification Section</h1>
+      <section class="notifications">
+        <h2 class="sr-only">Notifications</h2>
+        <div class="notifications__header">
+          <h2 class="notifications__title">
+            Notifications <span class="notifications__count">3</span>
+          </h2>
+          <button class="notifications__btn">Mark all as read</button>
+        </div>
+        <ul class="notifications__list">
+          <!-- notification 1 -->
+          <li class="notifications__item">
+            <article class="notification" data-type="post" data-status="unread">
+              <img
+                src="./assets/images/avatar-mark-webber.webp"
+                alt=""
+                class="notification__img" />
+              <div class="notification__inner">
+                <div class="notification__content">
+                  <p class="notification__text">
+                    <a href="#" class="notification__subject">Mark Webber</a>
+                    reacted to your recent post
+                    <a href="#" class="notification__object">
+                      My first tournament today!
+                    </a>
+                  </p>
+                  <p class="notification__time">
+                    <time datetime="">1m ago</time>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <!-- notification 2 -->
+          <li class="notifications__item">
+            <article
+              class="notification"
+              data-type="follow"
+              data-status="unread">
+              <img
+                src="./assets/images/avatar-angela-gray.webp"
+                alt=""
+                class="notification__img" />
+              <div class="notification__inner">
+                <div class="notification__content">
+                  <p class="notification__text">
+                    <a href="#" class="notification__subject">Angela Gray</a>
+                    followed you
+                  </p>
+                  <p class="notification__time">
+                    <time datetime="">5m ago</time>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <!-- notification 3 -->
+          <li class="notifications__item">
+            <article
+              class="notification"
+              data-type="group"
+              data-status="unread">
+              <img
+                src="./assets/images/avatar-jacob-thompson.webp"
+                alt=""
+                class="notification__img" />
+              <div class="notification__inner">
+                <div class="notification__content">
+                  <p class="notification__text">
+                    <a href="#" class="notification__subject">Jacob Thompson</a>
+                    has joined your group
+                    <a href="#" class="notification__object">Chess Club</a>
+                  </p>
+                  <p class="notification__time">
+                    <time datetime="">1 day ago</time>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <!-- notification 4 -->
+          <li class="notifications__item">
+            <article
+              class="notification"
+              data-type="message"
+              data-status="read">
+              <img
+                src="./assets/images/avatar-rizky-hasanuddin.webp"
+                alt=""
+                class="notification__img" />
+              <div class="notification__inner">
+                <div class="notification__content">
+                  <p class="notification__text">
+                    <a href="#" class="notification__subject">
+                      Rizky Hasanuddin
+                    </a>
+                    sent you a private message
+                  </p>
+                  <p class="notification__time">
+                    <time datetime="">5 days ago</time>
+                  </p>
+                </div>
+                <p class="notification__comment">
+                  <a href="#">
+                    Hello, thanks for setting up the Chess Club. I've been a
+                    member for a few weeks now and I'm already having lots of
+                    fun and improving my game.
+                  </a>
+                </p>
+              </div>
+            </article>
+          </li>
+
+          <!-- notification 5 -->
+          <li class="notifications__item">
+            <article
+              class="notification"
+              data-type="picture"
+              data-status="read">
+              <img
+                src="./assets/images/avatar-kimberly-smith.webp"
+                alt=""
+                class="notification__img" />
+              <div class="notification__inner">
+                <div class="notification__content">
+                  <p class="notification__text">
+                    <a href="#" class="notification__subject">Kimberly Smith</a>
+                    commented on your picture
+                  </p>
+                  <p class="notification__time"><time datetime=""></time></p>
+                </div>
+                <a href="#" class="notification__picture">
+                  <img src="./assets/images/image-chess.webp" alt="" />
+                </a>
+              </div>
+            </article>
+          </li>
+
+          <!-- notification 6 -->
+          <li class="notifications__item">
+            <article class="notification" data-type="post" data-status="read">
+              <img
+                src="./assets/images/avatar-nathan-peterson.webp"
+                alt=""
+                class="notification__img" />
+              <div class="notification__inner">
+                <div class="notification__content">
+                  <p class="notification__text">
+                    <a href="#" class="notification__subject">
+                      Nathan Peterson
+                    </a>
+                    reacted to your recent post
+                    <a href="#" class="notification__object">
+                      5 end-game strategies to increase your win rate
+                    </a>
+                  </p>
+                  <p class="notification__time">
+                    <time datetime="">2 weeks ago</time>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <!-- notification 7 -->
+          <li class="notifications__item">
+            <article class="notification" data-type="group" data-status="read">
+              <img
+                src="./assets/images/avatar-anna-kim.webp"
+                alt=""
+                class="notification__img" />
+              <div class="notification__inner">
+                <div class="notification__content">
+                  <p class="notification__text">
+                    <a href="#" class="notification__subject">Anna Kim</a>
+                    left the group
+                    <a href="#" class="notification__object">Chess Club</a>
+                  </p>
+                  <p class="notification__time">
+                    <time datetime="">2 weeks ago</time>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

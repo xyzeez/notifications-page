@@ -1,0 +1,333 @@
+/*
+  CSS Reset from
+  Josh: https://www.joshwcomeau.com/css/custom-css-reset/
+  Andy-bell: https://andy-bell.co.uk/a-more-modern-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+  cursor: pointer;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+address {
+  font-style: normal;
+}
+/* Reset Ends */
+
+/* Hides screen-reader contents */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Custom properties */
+:root {
+  /* primary colors */
+  --red: hsl(1, 90%, 64%);
+  --blue: hsl(219, 85%, 26%);
+
+  /* neutral colors */
+  --white: hsl(0, 0%, 100%);
+  --very-light-grayish-blue: hsl(210, 60%, 98%);
+  --light-grayish-blue-1: hsl(211, 68%, 94%);
+  --light-grayish-blue-2: hsla(211, 68%, 94%, 0.411);
+  --grayish-blue: hsl(219, 14%, 63%);
+  --dark-grayish-blue: hsl(219, 12%, 42%);
+  --very-dark-blue: hsl(224, 21%, 14%);
+
+  /* font-weights */
+  --regular: 500;
+  --bold: 800;
+}
+
+html {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--very-light-grayish-blue);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 630px);
+  font-weight: var(--regular);
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: var(--white);
+}
+
+.notifications {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: min(100%, 580px);
+}
+
+.notifications__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.notifications__title {
+  font-size: 1.25rem;
+  font-weight: var(--bold);
+  color: var(--very-dark-blue);
+}
+
+.notifications__count {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: var(--regular);
+  color: var(--white);
+  padding: 0.25rem 0.65rem;
+  margin-left: 5px;
+  border-radius: 7px;
+  background-color: var(--blue);
+}
+
+.notifications__btn {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--dark-grayish-blue);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.notifications__btn:is(:hover, :focus-within, :active) {
+  color: var(--blue);
+}
+
+.notifications__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.notifications__item {
+  border-radius: 8px;
+}
+
+.notification {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.6rem;
+
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--grayish-blue);
+  padding: 0.9rem;
+}
+
+/* Unread Notification styling */
+.notifications__item:has(.notification[data-status='unread']) {
+  background-color: var(--light-grayish-blue-2);
+}
+
+.notification[data-status='unread'] .notification__text::after {
+  position: absolute;
+  content: '';
+  top: calc(50% - 3px);
+  left: calc(100% + 5px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--red);
+}
+
+.notification[data-status='unread']
+  .notification__text:has(.notification__object)::after {
+  display: none;
+}
+
+.notification__object {
+  position: relative;
+}
+
+.notification[data-status='unread'] .notification__object::after {
+  position: absolute;
+  content: '';
+  top: calc(50% - 3px);
+  left: calc(100% + 5px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--red);
+}
+/* Unread Notification styling */
+
+.notification__img {
+  max-width: 40px;
+}
+
+.notification__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.notification[data-type='picture'] .notification__inner {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.notification__text {
+  position: relative;
+  width: fit-content;
+}
+
+.notification__subject {
+  margin-right: 2px;
+  font-weight: var(--bold);
+  color: var(--very-dark-blue);
+}
+
+.notification__subject:is(:hover, :focus-visible, :active) {
+  color: var(--blue);
+}
+
+.notification__object {
+  margin-left: 2px;
+  font-weight: var(--bold);
+  color: var(--dark-grayish-blue);
+}
+
+.notification[data-type='group'] .notification__object {
+  color: var(--blue);
+}
+
+.notification__object:is(:hover, :focus-visible, :active) {
+  color: var(--blue);
+}
+
+.notification__time {
+  font-size: 0.85rem;
+}
+
+.notification__comment {
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 6px;
+}
+
+.notification__comment:is(:hover, :focus-visible, :active) {
+  box-shadow: none;
+  background-color: var(--light-grayish-blue-1);
+}
+
+.notification__picture {
+  max-width: 40px;
+  height: fit-content;
+  border-radius: 8px;
+}
+
+.notification__picture:is(:hover, :focus-visible, :active) {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  background-color: var(--light-grayish-blue-1);
+}
+
+.notification__picture > img {
+  transition: all 0.5s ease;
+}
+
+.notification__picture:is(:hover, :focus-visible, :active) > img {
+  transform: scale(0.9);
+}
+
+@media screen and (min-width: 625px) {
+  body {
+    padding: 4rem 0;
+  }
+}
